@@ -41,7 +41,7 @@ class Router
             $controller->$methodName();
         } else {
             // Gestion des erreurs (page 404, etc.)
-            echo 'La page demandée n\'existe pas.';
+            echo '<h2>la page demandée n\'existe pas</h2>';
         }
     }
 }
@@ -50,8 +50,8 @@ class Router
 $router = new Router('DemoMVCAlpha');
 
 // Ajout des routes
+$router->addRoute('', 'HomeController@index'); // Pour la racine
 $router->addRoute('tasks', 'TaskController@index'); // Pour la racine
-$router->addRoute('about', 'AboutController@index'); // Pour la page "about"
 
 // Appel de la méthode route
 $router->route(trim($_SERVER['REQUEST_URI'], '/'));
